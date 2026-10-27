@@ -1,1 +1,33 @@
-
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["player_id", "handle", "active_scores"],
+    "properties": {
+      "player_id": {
+        "bsonType": "long",
+        "description": "Unique identifier for the player"
+      },
+      "handle": {
+        "bsonType": "string",
+        "description": "Unique player handle or username"
+      },
+      "joined_at": {
+        "bsonType": "date"
+      },
+      "active_scores": {
+        "bsonType": "array",
+        "description": "Embedded list of active high scores per game",
+        "items": {
+          "bsonType": "object",
+          "required": ["game_id", "game_title", "score", "achieved_at"],
+          "properties": {
+            "game_id": { "bsonType": "long" },
+            "game_title": { "bsonType": "string" },
+            "score": { "bsonType": "int" },
+            "achieved_at": { "bsonType": "date" }
+          }
+        }
+      }
+    }
+  }
+}
