@@ -16,6 +16,7 @@ This relational database supports a **Real-time Game Leaderboard** system. It ha
 * **Foreign Keys**: `fk_score_entry_0` referencing `player(player_id)` and `fk_score_entry_1` referencing `game(game_id)`.
 * **Domain Constraints**: `CHECK ("score" >= 0)` ensures non-negative scores. `UNIQUE ("handle")` prevents duplicate usernames.
 * **Partial Index Constraint**: `one_current_score_per_game` enforces that each player has at most one active (`is_current IS NOT NULL`) leaderboard entry per game.
+* **Constraint Verification**: Automated testing statements covering all primary keys, foreign keys, nullability checks, and domain checks are provided in [`ConstraintTests.sql`](./ConstraintTests.sql).
 
 ## 5. Normalisation Explanation (3NF Verification)
 * **First Normal Form (1NF)**: All columns hold atomic, single-valued entries (e.g., handles, single integer scores, single timestamp values).
