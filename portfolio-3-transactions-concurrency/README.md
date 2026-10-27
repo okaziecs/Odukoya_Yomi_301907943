@@ -22,8 +22,14 @@ UPDATE portfolio."score_entry"
 SET "p3_processed_count" = "p3_processed_count" + 1 
 WHERE "score_entry_id" IS NOT DISTINCT FROM 1001 
 RETURNING json_build_object('processed_count', "p3_processed_count");
+
 COMMIT;
 
+### 2.2 Aborted Transaction & State Recovery (`ROLLBACK`)
+
+When an operation deliberately violates a database constraint (`p3_processed_count = -1`), PostgreSQL aborts the transaction block:
+
+```text
 ERROR: 23514: new row for relation "score_entry" violates check constraint "p3_count_nonnegative"
 DETAIL: Failing row contains (1001, ..., -1).
 
