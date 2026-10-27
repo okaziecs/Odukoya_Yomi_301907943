@@ -75,3 +75,24 @@ SELECT * FROM portfolio."score_entry"
 WHERE "game_id" IS NOT DISTINCT FROM 101
 ORDER BY "score_entry_id"
 LIMIT 20;
+
+-------------------------------------------------------------------------------
+-- QUERY OPTIMISATION BENCHMARK (query_lab)
+-------------------------------------------------------------------------------
+
+-- 1. Unindexed Baseline Benchmark
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT "lab_row_id", "game_id"
+FROM query_lab."score_entry"
+WHERE "game_id" = (42 % 1000)::bigint
+ORDER BY "lab_row_id";
+
+-- 2. Create B-Tree Index on Filtering Column
+CREATE INDEX p2_filter_idx ON query_lab."score_entry" USING btree ("game_id");
+
+-- 3. Optimised Post-Indexing Benchmark
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT "lab_row_id", "game_id"
+FROM query_lab."score_entry"
+WHERE "game_id" = (42 % 1000)::bigint
+ORDER BY "lab_row_id";
