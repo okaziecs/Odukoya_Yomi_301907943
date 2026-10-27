@@ -1,1 +1,43 @@
-
+{
+  "clusterName": "global-arcade-hub-production",
+  "cloudProvider": "AWS / MongoDB Atlas Hybrid",
+  "topology": {
+    "relationalCore": {
+      "engine": "PostgreSQL Amazon RDS Multi-AZ",
+      "primaryRegion": "us-east-1 (N. Virginia)",
+      "highAvailability": {
+        "multiAZ": true,
+        "autoFailover": true,
+        "syncReplication": "Synchronous within Primary Region Availability Zones"
+      },
+      "readReplicas": [
+        {
+          "region": "eu-central-1 (Frankfurt)",
+          "replicationType": "Asynchronous Read-Replica",
+          "purpose": "Low-latency regional queries & localized analytics"
+        },
+        {
+          "region": "ap-southeast-1 (Singapore)",
+          "replicationType": "Asynchronous Read-Replica",
+          "purpose": "APAC player read requests"
+        }
+      ]
+    },
+    "noSQLStream": {
+      "engine": "MongoDB Atlas Multi-Region Cluster",
+      "shardingStrategy": {
+        "enabled": true,
+        "shardKey": { "eventType": "hashed", "occurredAt": 1 },
+        "shards": [
+          { "shardId": "shard_us", "nodeCount": 3, "region": "us-east-1" },
+          { "shardId": "shard_eu", "nodeCount": 3, "region": "eu-central-1" },
+          { "shardId": "shard_apac", "nodeCount": 3, "region": "ap-southeast-1" }
+        ]
+      }
+    }
+  },
+  "capTheoremTradeoff": {
+    "relationalSystem": "CP (Consistency & Partition Tolerance) via Strict ACID Transactions",
+    "telemetrySystem": "AP (Availability & Partition Tolerance) via Eventual Consistency"
+  }
+}
