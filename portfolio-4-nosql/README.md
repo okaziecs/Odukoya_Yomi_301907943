@@ -35,3 +35,338 @@ We designed an event-sourced document model (`leaderboard_events`) that captures
   },
   "details": { "channel": "web" }
 }
+
+
+
+
+
+
+# Execution Output Evidence
+
+acknowledged: true,
+  insertedIds: {
+    '0': 'event_000001',
+    '1': 'event_000002'
+  }
+}
+[
+  {
+    _id: 'event_000001',
+    schemaVersion: 1,
+    simulation: true,
+    eventType: 'score_submitted',
+    occurredAt: ISODate('2030-01-01T10:00:00.000Z'),
+    source: {
+      entity: 'score_entry',
+      key: {
+        score_entry_id: 1001
+      },
+      snapshot: {
+        score_entry_id: 1001,
+        player_id: 1,
+        game_id: 101,
+        score: 840,
+        achieved_at: '2024-03-10T12:00:00Z',
+        is_current: true
+      }
+    },
+    embedded: {
+      player: [
+        {
+          key: {
+            player_id: 1
+          },
+          snapshot: {
+            player_id: 1,
+            handle: 'mira',
+            joined_at: '2024-01-15T09:30:00Z'
+          },
+          via: [
+            'score_entry.player_id → player'
+          ]
+        }
+      ],
+      game: [
+        {
+          key: {
+            game_id: 101
+          },
+          snapshot: {
+            game_id: 101,
+            title: 'Orbit Rally',
+            release_date: '2023-09-12',
+            is_active: true
+          },
+          via: [
+            'score_entry.game_id → game'
+          ]
+        }
+      ]
+    },
+    references: {},
+    details: {
+      channel: 'web'
+    }
+  }
+]
+[
+  {
+    _id: 'event_000001',
+    schemaVersion: 1,
+    simulation: true,
+    eventType: 'score_submitted',
+    occurredAt: ISODate('2030-01-01T10:00:00.000Z'),
+    source: {
+      entity: 'score_entry',
+      key: {
+        score_entry_id: 1001
+      },
+      snapshot: {
+        score_entry_id: 1001,
+        player_id: 1,
+        game_id: 101,
+        score: 840,
+        achieved_at: '2024-03-10T12:00:00Z',
+        is_current: true
+      }
+    },
+    embedded: {
+      player: [
+        {
+          key: {
+            player_id: 1
+          },
+          snapshot: {
+            player_id: 1,
+            handle: 'mira',
+            joined_at: '2024-01-15T09:30:00Z'
+          },
+          via: [
+            'score_entry.player_id → player'
+          ]
+        }
+      ],
+      game: [
+        {
+          key: {
+            game_id: 101
+          },
+          snapshot: {
+            game_id: 101,
+            title: 'Orbit Rally',
+            release_date: '2023-09-12',
+            is_active: true
+          },
+          via: [
+            'score_entry.game_id → game'
+          ]
+        }
+      ]
+    },
+    references: {},
+    details: {
+      channel: 'web'
+    }
+  },
+  {
+    _id: 'event_000002',
+    schemaVersion: 1,
+    simulation: true,
+    eventType: 'score_accepted',
+    occurredAt: ISODate('2030-01-01T10:01:00.000Z'),
+    source: {
+      entity: 'score_entry',
+      key: {
+        score_entry_id: 1001
+      },
+      snapshot: {
+        score_entry_id: 1001,
+        player_id: 1,
+        game_id: 101,
+        score: 840,
+        achieved_at: '2024-03-10T12:00:00Z',
+        is_current: true
+      }
+    },
+    embedded: {
+      player: [
+        {
+          key: {
+            player_id: 1
+          },
+          snapshot: {
+            player_id: 1,
+            handle: 'mira',
+            joined_at: '2024-01-15T09:30:00Z'
+          },
+          via: [
+            'score_entry.player_id → player'
+          ]
+        }
+      ],
+      game: [
+        {
+          key: {
+            game_id: 101
+          },
+          snapshot: {
+            game_id: 101,
+            title: 'Orbit Rally',
+            release_date: '2023-09-12',
+            is_active: true
+          },
+          via: [
+            'score_entry.game_id → game'
+          ]
+        }
+      ]
+    },
+    references: {},
+    details: {
+      channel: 'mobile',
+      note: 'Illustrative event-specific metadata',
+      examples: {
+        event_payload: 'illustrative event_payload',
+        client_metadata: 'illustrative client_metadata'
+      }
+    }
+  }
+]
+[
+  {
+    _id: 'event_000001',
+    schemaVersion: 1,
+    simulation: true,
+    eventType: 'score_submitted',
+    occurredAt: ISODate('2030-01-01T10:00:00.000Z'),
+    source: {
+      entity: 'score_entry',
+      key: {
+        score_entry_id: 1001
+      },
+      snapshot: {
+        score_entry_id: 1001,
+        player_id: 1,
+        game_id: 101,
+        score: 840,
+        achieved_at: '2024-03-10T12:00:00Z',
+        is_current: true
+      }
+    },
+    embedded: {
+      player: [
+        {
+          key: {
+            player_id: 1
+          },
+          snapshot: {
+            player_id: 1,
+            handle: 'mira',
+            joined_at: '2024-01-15T09:30:00Z'
+          },
+          via: [
+            'score_entry.player_id → player'
+          ]
+        }
+      ],
+      game: [
+        {
+          key: {
+            game_id: 101
+          },
+          snapshot: {
+            game_id: 101,
+            title: 'Orbit Rally',
+            release_date: '2023-09-12',
+            is_active: true
+          },
+          via: [
+            'score_entry.game_id → game'
+          ]
+        }
+      ]
+    },
+    references: {},
+    details: {
+      channel: 'web'
+    }
+  },
+  {
+    _id: 'event_000002',
+    schemaVersion: 1,
+    simulation: true,
+    eventType: 'score_accepted',
+    occurredAt: ISODate('2030-01-01T10:01:00.000Z'),
+    source: {
+      entity: 'score_entry',
+      key: {
+        score_entry_id: 1001
+      },
+      snapshot: {
+        score_entry_id: 1001,
+        player_id: 1,
+        game_id: 101,
+        score: 840,
+        achieved_at: '2024-03-10T12:00:00Z',
+        is_current: true
+      }
+    },
+    embedded: {
+      player: [
+        {
+          key: {
+            player_id: 1
+          },
+          snapshot: {
+            player_id: 1,
+            handle: 'mira',
+            joined_at: '2024-01-15T09:30:00Z'
+          },
+          via: [
+            'score_entry.player_id → player'
+          ]
+        }
+      ],
+      game: [
+        {
+          key: {
+            game_id: 101
+          },
+          snapshot: {
+            game_id: 101,
+            title: 'Orbit Rally',
+            release_date: '2023-09-12',
+            is_active: true
+          },
+          via: [
+            'score_entry.game_id → game'
+          ]
+        }
+      ]
+    },
+    references: {},
+    details: {
+      channel: 'mobile',
+      note: 'Illustrative event-specific metadata',
+      examples: {
+        event_payload: 'illustrative event_payload',
+        client_metadata: 'illustrative client_metadata'
+      }
+    }
+  }
+]
+[
+  {
+    _id: 'score_accepted',
+    documentCount: 1
+  },
+  {
+    _id: 'score_submitted',
+    documentCount: 1
+  }
+]
+Invalid date error caught successfully: 121
+Duplicate ID error caught successfully: 11000
+Final Document Count: 2
+
+Atlas atlas-9ugtfk-shard-0 [primary] portfolio_nosql>
