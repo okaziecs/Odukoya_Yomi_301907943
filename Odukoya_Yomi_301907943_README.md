@@ -15,7 +15,7 @@ This repository contains the complete 5-part database portfolio for the **Global
 * [Portfolio 2: Query Optimization & Indexing](portfolio-2-query-optimisation/)
 * [Portfolio 3: Transactions & Concurrency Control](portfolio-3-transactions-concurrency/)
 * [Portfolio 4: NoSQL Document Store & Validation](portfolio-4-nosql/)
-* [Portfolio 5: Security, Governance & Distributed Cloud](portfolio-5-security-governance/)
+* [Portfolio 5: Security, Governance & Distributed Cloud](portfolio-5-distributed-cloud/)
 
 ---
 
