@@ -21,7 +21,6 @@ This repository contains the complete 5-part database portfolio for the **Global
 
 ## Core Documentation & Reflection Report
 
-* **Markdown Summary:** [Odukoya_Yomi_301907943_Final_Report.md](Odukoya_Yomi_301907943_Final_Report.md)
-* **PDF Documentation:** [Odukoya_Yomi_301907943_Final_Report.pdf](Odukoya_Yomi_301907943_Final_Report.pdf)
+* **PDF Documentation:** [Odukoya_Yomi_301907943_Final_Report.pdf](Odukoya_Yomi_301907943_FinalSummary.pdf)
 
 > **Academic Note:** This portfolio utilizes synthetic benchmark records and simulated multi-region cloud configurations for the fictional entity *Global Arcade Hub*.
