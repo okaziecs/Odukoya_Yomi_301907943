@@ -54,3 +54,19 @@ Bitmap Heap Scan on score_entry  (cost=4.33..52.12 rows=20 width=16) (actual tim
         Index Cond: (game_id = '42'::bigint)
 Planning Time: 0.115 ms
 Execution Time: 0.089 ms
+
+
+## 3. Database Execution & Implementation Evidence
+
+### 3.1 Relational Table Verification and Seed Data Population
+The relational schema and initial seed data were successfully executed and verified using the **Neon (PostgreSQL)** cloud environment under the custom `portfolio` schema.
+
+The screenshot below demonstrates the populated `portfolio.score_entry` table inside the Neon database console:
+
+![Portfolio Score Entry Table Verification](Odukoya_Yomi_301907943_P1_DataVerification.png)
+*Figure 3.1: Active verification of `portfolio.score_entry` table populated with verified test entries, schema structure, and transaction tracking columns (`p3_processed_count`).*
+
+#### Key Verification Highlights:
+* **Schema Path:** Tables are isolated and verified under `portfolio.score_entry`.
+* **Data Integrity:** Primary keys (`score_id`), foreign key relations (`player_id`, `game_id`), and default timestamps (`achieved_at`) automatically populated without constraint violations.
+* **Transaction Preparedness:** The `p3_processed_count` column initialized to `0` with non-negative check constraints (`CHECK (p3_processed_count >= 0)`), proving readiness for Portfolio 3 concurrency testing.
