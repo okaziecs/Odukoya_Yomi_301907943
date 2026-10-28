@@ -61,3 +61,26 @@ The system employs a **Polyglot Persistence Strategy** deployed across AWS and M
     }
   }
 }
+
+PROPOSED DISTRIBUTED HYBRID ARCHITECTURE — (PROPOSAL ONLY)
+
+                     ┌────────────────────────────────────────┐
+                     │            Application Core            │
+                     │          (Global Arcade Hub)           │
+                     └───────────────────┬────────────────────┘
+                                         │
+                 ┌───────────────────────┴───────────────────────┐
+                 │                                               │
+                 ▼                                               ▼
+   ┌───────────────────────────┐                   ┌───────────────────────────┐
+   │ PostgreSQL Relational     │                   │   MongoDB Atlas Primary   │
+   │ Core (CP Mode)            │                   │   Zone A (AP Telemetry)   │
+   │ - User Profiles & Auth    │                   └─────────────┬─────────────┘
+   │ - Player Transactions     │                                 │
+   └───────────────────────────┘                 ┌───────────────┴───────────────┐
+                                                 │                               │
+                                                 ▼                               ▼
+                                   ┌───────────────────────────┐   ┌───────────────────────────┐
+                                   │  Secondary · Replica B    │   │  Secondary · Replica C    │
+                                   │  (eu-central-1)           │   │  (ap-southeast-1)         │
+                                   └───────────────────────────┘   └───────────────────────────┘
