@@ -63,7 +63,7 @@ The relational schema and initial seed data were successfully executed and verif
 
 The screenshot below demonstrates the populated `portfolio.score_entry` table inside the Neon database console:
 
-![Portfolio Score Entry Table Verification](Odukoya_Yomi_301907943_P1_DataVerification.png)
+![Portfolio Score Entry Table Verification](Odukoya_Yomi_301907943_P2_DataVerification.png)
 *Figure 3.1: Active verification of `portfolio.score_entry` table populated with verified test entries, schema structure, and transaction tracking columns (`p3_processed_count`).*
 
 #### Key Verification Highlights:
